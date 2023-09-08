@@ -1,0 +1,32 @@
+- name: Create a Proxmox VM
+hosts: proxmox
+gather_facts: false
+vars:
+proxmox_api_user: 'root'
+proxmox_api_password: 'your_proxmox_password'
+proxmox_api_host: 'your_proxmox_host'
+proxmox_api_port: '8006'
+proxmox_vm_name: 'new_vm_name'
+proxmox_vm_template: 'template_name'
+proxmox_vm_node: 'proxmox_node_name'
+proxmox_vm_cores: 2
+proxmox_vm_memory: 4096
+proxmox_vm_disk_size: 20G
+
+
+- name: Create Proxmox VM
+proxmox_kvm:
+api_user: "{{ proxmox_api_user }}"
+api_password: "{{ proxmox_api_password }}"
+api_host: "{{ proxmox_api_host }}"
+api_port: "{{ proxmox_api_port }}"
+vmid: 100 # ID for the new VM
+node: "{{ proxmox_vm_node }}"
+name: "{{ proxmox_vm_name }}"
+cores: "{{ proxmox_vm_cores }}"
+memory: "{{ proxmox_vm_memory }}"
+disks:
+- size: "{{ proxmox_vm_disk_size }}"
+storage: local-lvm # Storage pool for the disk
+template: "{{ proxmox_vm_template }}"
+state: present
