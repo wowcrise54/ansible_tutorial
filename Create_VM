@@ -2,13 +2,13 @@
 hosts: proxmox
 gather_facts: false
 vars:
-proxmox_api_user: 'root'
-proxmox_api_password: 'your_proxmox_password'
-proxmox_api_host: 'your_proxmox_host'
+proxmox_api_user: 'root@pam'
+proxmox_api_password: 'Tusson112'
+proxmox_api_host: 'https://192.168.5.185'
 proxmox_api_port: '8006'
-proxmox_vm_name: 'new_vm_name'
+proxmox_vm_name: '110'
 proxmox_vm_template: 'template_name'
-proxmox_vm_node: 'proxmox_node_name'
+proxmox_vm_node: 'pve'
 proxmox_vm_cores: 2
 proxmox_vm_memory: 4096
 proxmox_vm_disk_size: 20G
